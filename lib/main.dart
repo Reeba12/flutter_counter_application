@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -25,10 +26,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+=======
+    return const MaterialApp(
+      home: MyHomePage(title: 'My First App'),
+>>>>>>> Stashed changes
     );
   }
 }
 
+<<<<<<< Updated upstream
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -50,6 +56,55 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+=======
+// class MyFirstScreen extends StatelessWidget {
+//   const MyFirstScreen({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('First Application'),
+//       ),
+//       drawer: const Drawer(),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             const Text(
+//               "Count : 0",
+//               style: TextStyle(
+//                 fontSize: 30,
+//                 fontWeight: FontWeight.w600,
+//               ),
+//             ),
+//             TextButton(
+//               onPressed: () {},
+//               child: const Text('Increment'),
+//             ),
+//             TextButton(
+//               onPressed: () {},
+//               child: const Text('Decrement'),
+//             ),
+//           ],
+//         ),
+//       ),
+//       // floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+//       floatingActionButton: FloatingActionButton(
+//         child: const Icon(Icons.add),
+//         onPressed: () {
+//           print('testing');
+//         },
+//       ),
+//     );
+//   }
+// }
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+>>>>>>> Stashed changes
 
   void _incrementCounter() {
     setState(() {
@@ -61,6 +116,25 @@ class _MyHomePageState extends State<MyHomePage> {
   //     _counter--;
   //   });
   // }
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -94,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
+<<<<<<< Updated upstream
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
@@ -101,6 +176,34 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+=======
+          children: [
+             Text(
+              'Counter:$_counter',
+              style: const TextStyle(
+                fontSize: 35,
+                fontWeight: FontWeight.w700,
+                color: Colors.blueAccent
+              ),
+            ),
+            TextButton(
+              onPressed: _incrementCounter,
+              child: const Text('Increment',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: _decrementCounter,
+              child: const Text('Decrement',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+>>>>>>> Stashed changes
             ),
           ],
         ),
@@ -109,8 +212,48 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+<<<<<<< Updated upstream
+=======
+        onPressed: () {
+          debugPrint('testing');
+        },
+>>>>>>> Stashed changes
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+<<<<<<< Updated upstream
 }
+=======
+
+}
+//   @override
+//   Widget build(BuildContext context) {
+//
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             const Text(
+//               'You have pushed the button this many times:',
+//             ),
+//             Text(
+//               '$_counter',
+//               style: Theme.of(context).textTheme.headline4,
+//             ),
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: _incrementCounter,
+//         tooltip: 'Increment',
+//         child: const Icon(Icons.add),
+//       ),
+//     );
+//   }
+// }
+>>>>>>> Stashed changes
