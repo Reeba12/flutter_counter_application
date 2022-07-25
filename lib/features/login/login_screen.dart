@@ -24,14 +24,7 @@ class LoginScreen extends StatelessWidget {
             TextButton(
               child: const Text('Go to Home'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return const HomeScreen();
-                    },
-                  ),
-                );
+                Navigator.pushNamed(context, "home");
               },
             )
           ],

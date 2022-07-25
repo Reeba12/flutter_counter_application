@@ -1,6 +1,8 @@
 import 'package:demo/features/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'features/home/home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,8 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginScreen(),
+    return MaterialApp(
+      home: const LoginScreen(),
+      routes: {
+        "home": (context) {
+          return const HomeScreen();
+        },
+        "login": (context) {
+          return const LoginScreen();
+        },
+      },
     );
   }
 }
