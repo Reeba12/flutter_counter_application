@@ -10,88 +10,39 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(title: 'My first App'),
+    return MaterialApp(
+      home: ListScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class ListScreen extends StatelessWidget {
+  ListScreen({Key? key}) : super(key: key);
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-  void _decrementCounter() {
-    setState(() {
-      if(_counter!=0){
-        _counter--;
-      }
-      else{
-        _counter=0;
-      }
-    });
-  }
   @override
   Widget build(BuildContext context) {
+    final users = List.generate(100, (index) => "Dost $index");
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Application'),
+        title: const Text('ListView'),
       ),
-      drawer: const Drawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Counter:$_counter',
-              style: const TextStyle(
-                color: Colors.blueAccent,
-                fontSize: 35,
-                fontWeight: FontWeight.w700,
-              ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(users[index]),
+            subtitle: const Text('She is reeba friend'),
+            leading: Icon(
+              index == 6 ? Icons.star : Icons.people_alt_outlined,
+              color: index == 6 ? Colors.orange : null,
             ),
-            TextButton(
-                onPressed: _incrementCounter,
-                child: const Text('Increment',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                ),
-                ),
-
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
             ),
-            TextButton(
-              onPressed: _decrementCounter,
-              child: const Text('Decrement',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          debugPrint('learning');
+          );
         },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        itemCount: users.length,
       ),
-      );
+    );
   }
 }
